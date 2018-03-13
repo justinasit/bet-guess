@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  betfair_app_key: 'mV2RjYhVRVtgwWo2',
+  betfair_session_key: 'oajbJcD3axH0JtBn05J8DpCco+ExnV+Sx7j3qpDvdbI=',
 };
