@@ -12,10 +12,21 @@ export class BetfairService {
       'Content-Type': 'application/json',
   });
 
-  private listEventTypesEndpoint = 'listEventTypes/';
+  private listMarketIdsEndpoint = 'listMarketCatalogue/';
+  private listOddsEndpoint = 'listMarketBook/';
 
-  list() {
-    return this.http.post(environment.api_url + this.listEventTypesEndpoint, {filter: {}},
-        {headers: this.headers});
+  listMarketIds() {
+    return this.http.post<{marketId, event}[]>(environment.api_url + this.listMarketIdsEndpoint, {filter: {
+        "competitionIds": [10547864],
+        "marketTypeCodes": ['MATCH_ODDS']
+    }, "maxResults": "20", "marketProjection": ["EVENT"]},
+    {headers: this.headers});
+  }
+
+  listOdds(marketIds) {
+    return this.http.post<{marketId, runners}[]>(environment.api_url + this.listOddsEndpoint, {
+        "marketIds": marketIds
+    },
+    {headers: this.headers});
   }
 }

@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   betfair_app_key: 'mV2RjYhVRVtgwWo2',
   betfair_session_key: 'ok7muvGOvrwrs3Gzy0IgGRv/fHjVYj+z3W7+/Q86Zag=',
+  /* Using CORS Anywhere (https://github.com/Rob--W/cors-anywhere) to do 3rd party API calls */
   api_url: 'https://cors-anywhere.herokuapp.com/https://api.betfair.com/exchange/betting/rest/v1.0/',
 };
