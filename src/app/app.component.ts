@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BetfairService } from './api/betfair.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private betfairService: BetfairService) { 
+      this.betfairService.list().subscribe(data => {
+          console.log(data);
+      });
+  }
 }

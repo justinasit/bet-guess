@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   betfair_app_key: 'mV2RjYhVRVtgwWo2',
-  betfair_session_key: 'oajbJcD3axH0JtBn05J8DpCco+ExnV+Sx7j3qpDvdbI=',
+  betfair_session_key: 'ok7muvGOvrwrs3Gzy0IgGRv/fHjVYj+z3W7+/Q86Zag=',
+  api_url: 'https://cors-anywhere.herokuapp.com/https://api.betfair.com/exchange/betting/rest/v1.0/',
 };
