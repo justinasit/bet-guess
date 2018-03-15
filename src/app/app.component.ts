@@ -26,9 +26,13 @@ export class AppComponent {
   listOdds() {
     this.betfairService.listOdds(this.marketIds).subscribe(data => {
       data.forEach(function(val) { 
-        this.events[val.marketId].firstOdds = val.runners[0].lastPriceTraded;
-        this.events[val.marketId].secondOdds = val.runners[1].lastPriceTraded;
+        this.events[val.marketId].firstOdds = this.convertOddsToPercentage(val.runners[0].lastPriceTraded);
+        this.events[val.marketId].secondOdds = this.convertOddsToPercentage(val.runners[1].lastPriceTraded);
       }, this);
     });
+  }
+
+  convertOddsToPercentage(line) {
+    return (1/line*100).toFixed(2);
   }
 }

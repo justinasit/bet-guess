@@ -4,7 +4,10 @@
   </h1>
   <button type="button" *ngIf="object_values(events).length==0" (click)="showMatches()">NBA</button>
   <ng-container *ngFor="let event of object_values(events)">
-    {{ event.name }} - {{ event.firstOdds }} : {{ event.secondOdds }}<br>
+    {{ event.name }}<br>{{ event.firstOdds }}% : {{ event.secondOdds }}%<br>
+    <input type="text" style="width: 30px"/>
+    <input type="text" style="width: 30px"/>
+    <br><br>
   </ng-container>
   <br>
   <button type="button" *ngIf="object_values(events).length>0" (click)="listOdds()">List odds</button>
