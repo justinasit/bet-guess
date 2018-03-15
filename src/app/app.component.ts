@@ -14,8 +14,13 @@ export class AppComponent {
   constructor(private betfairService: BetfairService) { 
   }
 
-  showMatches() {
-    this.betfairService.listMarketIds().subscribe(data => {
+  /**
+   * Show a list of matches for the current day.
+   * Store the market IDs for the future search to reveal the odds.
+   * Competition is NBA by default.
+   */
+  showMatches(competitionId=10547864) {
+    this.betfairService.listMarketIds(competitionId).subscribe(data => {
       this.marketIds = data.map(x => x.marketId);
       data.forEach(function(val) { 
         this.events[val.marketId] = {name: val.event.name};
@@ -23,6 +28,10 @@ export class AppComponent {
     });
   }
 
+  /**
+   * Get the odds of the matches from the API.
+   * Store them in the events object.
+   */
   listOdds() {
     this.betfairService.listOdds(this.marketIds).subscribe(data => {
       data.forEach(function(val) { 
@@ -32,6 +41,9 @@ export class AppComponent {
     });
   }
 
+  /**
+   * Convert the odd lines into a human-readable percentage.
+   */
   convertOddsToPercentage(line) {
     return (1/line*100).toFixed(2);
   }

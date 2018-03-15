@@ -15,8 +15,7 @@ export class BetfairService {
   private listMarketIdsEndpoint = 'listMarketCatalogue/';
   private listOddsEndpoint = 'listMarketBook/';
 
-  /** Competition is NBA By Default */
-  listMarketIds(competitionId=10547864) {
+  listMarketIds(competitionId) {
     return this.http.post<{marketId, event}[]>(environment.api_url + this.listMarketIdsEndpoint, {filter: {
         "competitionIds": [competitionId],
         "marketTypeCodes": ['MATCH_ODDS']
