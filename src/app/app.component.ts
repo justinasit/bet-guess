@@ -9,22 +9,26 @@ import { BetfairService } from './api/betfair.service';
 export class AppComponent {
   events : {name}[] = [];
   object_values = Object.values;
+  private marketIds;
 
   constructor(private betfairService: BetfairService) { 
   }
 
-  showOdds() {
+  showMatches() {
     this.betfairService.listMarketIds().subscribe(data => {
-      let marketIds = data.map(x => x.marketId);
+      this.marketIds = data.map(x => x.marketId);
       data.forEach(function(val) { 
         this.events[val.marketId] = {name: val.event.name};
       }, this);
-      this.betfairService.listOdds(marketIds).subscribe(data => {
-        data.forEach(function(val) { 
-            this.events[val.marketId].firstOdds = val.runners[0].lastPriceTraded;
-            this.events[val.marketId].secondOdds = val.runners[1].lastPriceTraded;
-        }, this);
-      });
+    });
+  }
+
+  listOdds() {
+    this.betfairService.listOdds(this.marketIds).subscribe(data => {
+      data.forEach(function(val) { 
+        this.events[val.marketId].firstOdds = val.runners[0].lastPriceTraded;
+        this.events[val.marketId].secondOdds = val.runners[1].lastPriceTraded;
+      }, this);
     });
   }
 }
