@@ -2,6 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { BetfairService } from './api/betfair.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        NgHttpLoaderModule
       ],
       providers: [BetfairService]
     }).compileComponents().then(() => {

@@ -20,13 +20,11 @@ export class AppComponent {
    * Competition is NBA by default.
    */
   showMatches(competitionId=10547864) {
-    console.log(this.events);
     this.betfairService.listMarketIds(competitionId).subscribe(data => {
       this.marketIds = data.map(x => x.marketId);
       data.forEach(function(val) { 
         this.events[val.marketId] = {name: val.event.name};
       }, this);
-      console.log(this.events[1.141378723]);
     });
   }
 
