@@ -3,6 +3,8 @@ import { AppComponent } from './app.component';
 import { BetfairService } from './api/betfair.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -15,7 +17,9 @@ describe('AppComponent', () => {
       ],
       imports: [
         HttpClientModule,
-        NgHttpLoaderModule
+        NgHttpLoaderModule,
+        MaterialModule,
+        BrowserAnimationsModule
       ],
       providers: [BetfairService]
     }).compileComponents().then(() => {
