@@ -1,20 +1,2 @@
 <spinner></spinner>
-<div style="text-align:center">
-  <h1>
-    Guess the odds!
-  </h1>
-  <button mat-raised-button color="primary" type="button" *ngIf="object_values(events).length==0" (click)="showMatches()">NBA</button>
-  <ng-container *ngFor="let event of object_values(events)">
-    {{ event.name }}<br>{{ event.firstOdds }}% : {{ event.secondOdds }}%<br>
-    <br>
-    <mat-form-field style="width: 100px">
-      <input matInput type="text" placeholder="First Team" />
-    </mat-form-field>
-    <mat-form-field style="width: 100px">
-      <input matInput type="text" placeholder="Second Team"/>
-    </mat-form-field>
-    <br><br>
-  </ng-container>
-  <br>
-  <button mat-raised-button color="primary" type="button" *ngIf="object_values(events).length>0" (click)="listOdds()">List odds</button>
-</div>
+<app-main-page></app-main-page>

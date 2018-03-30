@@ -4,14 +4,16 @@ import { NgModule } from '@angular/core';
 import { BetfairService } from './api/betfair.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
